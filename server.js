@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/netflix", {
+  .connect("mongodb+srv://Ayushi:12345@cluster0.cmsldom.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -23,16 +23,16 @@ mongoose
 app.use("/api/user", userRoutes);
 
 // serving the frontend
-app.use(express.static(path.join(_dirname, "./client/build")));
+// app.use(express.static(path.join(_dirname, "./client/build")));
 
-app.get("*", function(_,res) {
-  res.sendFile(
-    path,join(_dirname, "./netflix-ui/build", "index.html"),
-    function(err) {
-      res.statusCode(500).send(err);
-    }
-  );
-});
+// app.get("*", function(_,res) {
+//   res.sendFile(
+//     path,join(_dirname, "./netflix-ui/build", "index.html"),
+//     function(err) {
+//       res.statusCode(500).send(err);
+//     }
+//   );
+// });
 //
 
 app.listen(5000, () => {
