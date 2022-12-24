@@ -14,6 +14,7 @@ module.exports.getLikedMovies = async (req, res) => {
 
 module.exports.addToLikedMovies = async (req, res) => {
   try {
+    console.log(add);
     const { email, data } = req.body;
     const user = await User.findOne({ email });
     if (user) {
@@ -37,6 +38,7 @@ module.exports.addToLikedMovies = async (req, res) => {
 
 module.exports.removeFromLikedMovies = async (req, res) => {
   try {
+    console.log(remove);
     const { email, movieId } = req.body;
     const user = await User.findOne({ email });
     if (user) {
